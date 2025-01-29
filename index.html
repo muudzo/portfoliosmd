@@ -628,7 +628,7 @@ document.querySelector('.contact__form').addEventListener('submit', async functi
     };
     console.log("sending form data:", formData);
     try {
-        let response = await fetch("http://localhost:5050/contact", { 
+        let response = await fetch("https://smddevelopers.onrender.com", { 
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
