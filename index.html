@@ -63,6 +63,14 @@
             color: var(--primary);
             text-decoration: none;
         }
+        .nav__logo-image {
+     height: 3.125rem; /* Adjust height as needed */
+     width: auto;  /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image doesn't stretch */
+    margin-right: auto;
+
+}
+
 
         .nav__menu {
             display: flex;
@@ -187,6 +195,13 @@
                 flex-direction: column;
                 transition: var(--transition);
             }
+           
+     @media (max-width: 768px) {
+    .nav__logo-image {
+        height: 2.5rem; /* Smaller height for mobile */
+        min-width: 80px; /* Adjust minimum width for smaller screens */
+    }
+}
 
             .nav__menu.active {
                 top: 4rem;
@@ -434,7 +449,8 @@
 <body>
     <header class="header">
         <nav class="nav">
-            <a href="#" class="nav__logo">SMD DEVELOPERS</a>
+            <a href="#" class="nav__logo"></a>
+            <img src="images/logo.png" alt="SMD Developers Logo" class="nav__logo-image">
             <div class="nav__menu">
                 <ul class="nav__list">
                     <li><a href="#about" class="nav__link">About</a></li>
@@ -484,7 +500,7 @@
             <div class="skill__card">
                 <i class="skill__icon fas fa-code"></i>
                 <h3 class="skill__name">Front-End Development</h3>
-                <p class="skill__description">Proficient in HTML, CSS, JavaScript, while also learning and using modern frameworks like React and Vue.js.</p>
+                <p class="skill__description">Proficient in HTML, CSS, JavaScript, while also  using modern frameworks like React and Vue.js.</p>
             </div>
             <div class="skill__card">
                 <i class="skill__icon fas fa-server"></i>

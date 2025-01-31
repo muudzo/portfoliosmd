@@ -71,3 +71,27 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 });
+
+document.querySelector('.contact__form').addEventListener('submit', async function (e) {
+e.preventDefault();
+
+const formData = {
+name: this.querySelector('input[type="text"]').value,
+email: this.querySelector('input[type="email"]').value,
+message: this.querySelector('textarea').value
+};
+console.log("sending form data:", formData);
+try {
+let response = await fetch("https://smddevelopers.onrender.com", { 
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData)
+});
+
+let result = await response.json();
+console.log("server response:", result);
+alert(result.success || result.error);
+} catch (error) {
+console.error("Error submitting contact form:", error);
+}
+});
