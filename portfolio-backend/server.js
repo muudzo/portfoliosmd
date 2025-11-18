@@ -10,6 +10,8 @@ const allowedOrigins = [
     'http://localhost:3000',     // Local frontend development
     'http://localhost:5500',     // Live server extension
     'https://smddevelopers.com', // Future production domain
+    'http://localhost:8000',     // Python local server
+    'http://127.0.0.1:8000',     // Python local server (loopback)
     
 ];
 

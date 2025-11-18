@@ -186,13 +186,11 @@
                 flex-direction: column;
                 transition: var(--transition);
             }
-           
-     @media (max-width: 768px) {
-    .nav__logo-image {
-        height: 2.5rem; /* Smaller height for mobile */
-        min-width: 80px; /* Adjust minimum width for smaller screens */
-    }
-}
+
+            .nav__logo-image {
+                height: 2.5rem; /* Smaller height for mobile */
+                min-width: 80px; /* Adjust minimum width for smaller screens */
+            }
 
             .nav__menu.active {
                 top: 4rem;

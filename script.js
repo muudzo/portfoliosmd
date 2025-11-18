@@ -236,3 +236,5 @@ function getApiUrl() {
     ? 'https://smddevelopers.onrender.com'
     : 'http://localhost:5050';
 }
+
+// (Reverted) Removed 3D tilt effect to restore original behavior
