@@ -1,19 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Theme Toggle
     const themeToggle = document.querySelector('.theme-toggle');
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', newTheme);
-        themeToggle.innerHTML = newTheme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
-    });
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            themeToggle.innerHTML = newTheme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+        });
+    }
 
     // Mobile Menu
     const navToggle = document.querySelector('.nav__toggle');
     const navMenu = document.querySelector('.nav__menu');
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
 
     // Smooth Scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -73,6 +77,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Form Submission with validation
     setupContactForm();
+
+    // Pill nav interactions
+    const pillNav = document.querySelector('.pill-nav');
+    const pillItems = pillNav ? pillNav.querySelectorAll('.pill-item') : [];
+    let hoverTimeout = null;
+
+    // Mapping your desired sections to existing page IDs
+    const sectionMap = {
+        about: 'about',
+        skills: 'skills',
+        projects: 'projects',
+        contact: 'contact'
+    };
+
+    if (pillNav && pillItems.length) {
+        pillNav.addEventListener('mouseenter', () => {
+            if (hoverTimeout) {
+                clearTimeout(hoverTimeout);
+            }
+            pillNav.classList.add('expanded');
+        });
+
+        pillNav.addEventListener('mouseleave', () => {
+            hoverTimeout = setTimeout(() => {
+                pillNav.classList.remove('expanded');
+            }, 600);
+        });
+
+        pillItems.forEach(btn => {
+            btn.addEventListener('click', () => {
+                pillItems.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const key = btn.getAttribute('data-section');
+                const targetId = key && sectionMap[key];
+                const target = targetId ? document.getElementById(targetId) || document.querySelector(`#${targetId}`) : null;
+
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+
+                // Collapse after selection
+                pillNav.classList.remove('expanded');
+            });
+        });
+    }
 });
 
 function setupContactForm() {
