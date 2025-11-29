@@ -6,6 +6,7 @@
     <meta name="description" content="SMD Developers Portfolio - Full Stack Developer & Tech Enthusiast">
     <title>SMD Developers | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -32,8 +33,17 @@
             <h1 class="hero__title">Turning My dreams into <span class="highlight">Code</span></h1>
             <p class="hero__subtitle">  Full Stack Developer  | Entrepreneur | Problem Solver  </p>
             <div class="hero__cta">
-                <a href="#contact" class="btn btn--primary">Let's Connect</a>
-                <a href="#" class="btn btn--secondary">View Work</a>
+                <!-- Simplified Let's Connect button -->
+                <a href="#contact" aria-label="Go to contact" class="hero-btn hero-btn--primary">
+                    <span class="hero-btn__text">Let's Connect</span>
+                    <i class="fas fa-arrow-right hero-btn__icon"></i>
+                </a>
+
+                <!-- Simplified View Work button -->
+                <a href="#projects" aria-label="View projects" class="hero-btn hero-btn--secondary">
+                    <span class="hero-btn__text">View Work</span>
+                    <i class="fas fa-eye hero-btn__icon"></i>
+                </a>
             </div>
         </div>
     </section>
