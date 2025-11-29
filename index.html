@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header class="header">
         <nav class="nav">
@@ -17,12 +19,24 @@
             </a>
             <!-- Pill Navigation (vanilla JS) -->
             <div class="pill-nav" aria-label="Adaptive Navigation">
-                <button class="pill-item active" data-section="about" type="button">About</button>
-                <button class="pill-item" data-section="skills" type="button">Skills</button>
-                <button class="pill-item" data-section="projects" type="button">Projects</button>
-                <button class="pill-item" data-section="contact" type="button">Contact</button>
+                <button class="pill-item active" data-section="about" type="button">
+                    <i class="fas fa-user pill-icon"></i>
+                    <span class="pill-text">About</span>
+                </button>
+                <button class="pill-item" data-section="skills" type="button">
+                    <i class="fas fa-code pill-icon"></i>
+                    <span class="pill-text">Skills</span>
+                </button>
+                <button class="pill-item" data-section="projects" type="button">
+                    <i class="fas fa-folder pill-icon"></i>
+                    <span class="pill-text">Projects</span>
+                </button>
+                <button class="pill-item" data-section="contact" type="button">
+                    <i class="fas fa-envelope pill-icon"></i>
+                    <span class="pill-text">Contact</span>
+                </button>
             </div>
-            
+
             <!-- Removed burger button to prevent confusion; pill nav handles navigation -->
         </nav>
     </header>
@@ -31,7 +45,7 @@
         <div id="particles-js"></div>
         <div class="hero__content">
             <h1 class="hero__title">Turning My dreams into <span class="highlight">Code</span></h1>
-            <p class="hero__subtitle">  Full Stack Developer  | Entrepreneur | Problem Solver  </p>
+            <p class="hero__subtitle"> Full Stack Developer | Entrepreneur | Problem Solver </p>
             <div class="hero__cta">
                 <!-- Simplified Let's Connect button -->
                 <a href="#contact" aria-label="Go to contact" class="hero-btn hero-btn--primary">
@@ -53,7 +67,15 @@
         <h2 class="section__title">About Me</h2>
         <div class="about__content">
             <div class="about__text">
-                <p class="section__content"> I'm Tatenda , a Full Stack Developer guided by the principle of "Solve for one, extend to many." With a strong foundation in web development and venturing into software devlopment , I focus on creating solutions  that address specific challenges while being adaptable to broader needs. My goal is to build solutions that are practical, scalable, and impactful.</p> <p class="section__content">My journey in tech began with a desire to address real-world challenges in Zimbabwe through technology. From finding ways to streamline everyday tasks to tackling larger systemic problems, I’ve always been driven by the potential of technology to create meaningful change. This passion has grown into a commitment to building solutions that not only solve immediate problems but also have a lasting impact.</p>
+                <p class="section__content"> I'm Tatenda , a Full Stack Developer guided by the principle of "Solve for
+                    one, extend to many." With a strong foundation in web development and venturing into software
+                    devlopment , I focus on creating solutions that address specific challenges while being adaptable to
+                    broader needs. My goal is to build solutions that are practical, scalable, and impactful.</p>
+                <p class="section__content">My journey in tech began with a desire to address real-world challenges in
+                    Zimbabwe through technology. From finding ways to streamline everyday tasks to tackling larger
+                    systemic problems, I’ve always been driven by the potential of technology to create meaningful
+                    change. This passion has grown into a commitment to building solutions that not only solve immediate
+                    problems but also have a lasting impact.</p>
             </div>
             <div class="about__image">
                 <img src="images/tate.jpg" alt="About Me">
@@ -68,13 +90,16 @@
             <div class="skill__card">
                 <i class="skill__icon fas fa-code"></i>
                 <h3 class="skill__name">Front-End Development</h3>
-                <p class="skill__description">Proficient in HTML, CSS, JavaScript, while also  using modern frameworks like React and Vue.js.</p>
+                <p class="skill__description">Proficient in HTML, CSS, JavaScript, while also using modern frameworks
+                    like React and Vue.js.</p>
             </div>
             <div class="skill__card">
                 <i class="skill__icon fas fa-server"></i>
                 <h3 class="skill__name">Back-End Development</h3>
-                <p class="skill__description">Currently advancing my back-end development skills. I’m proficient in Node.js, Express, database management with MongoDB and SQL, and I can also work with Supabase, PHP, and the Laravel framework.
-</p>
+                <p class="skill__description">Currently advancing my back-end development skills. I’m proficient in
+                    Node.js, Express, database management with MongoDB and SQL, and I can also work with Supabase, PHP,
+                    and the Laravel framework.
+                </p>
             </div>
             <div class="skill__card">
                 <i class="skill__icon fas fa-mobile-alt"></i>
@@ -101,7 +126,8 @@
             <div class="project__card">
                 <img src="images/popcorn.png" alt="Project 2" class="project__image">
                 <h3 class="project__title">Popcorn Planner</h3>
-                <p class="project__description">An app that saves movies to a user's watchlist based on a database of movies.</p>
+                <p class="project__description">An app that saves movies to a user's watchlist based on a database of
+                    movies.</p>
             </div>
             <div class="project__card">
                 <img src="images/journalix.JPG" alt="Project 3" class="project__image">
@@ -128,8 +154,9 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-   
+
 
     <script src="script.js"></script>
 </body>
+
 </html>
