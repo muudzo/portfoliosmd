@@ -147,10 +147,10 @@
     <!-- Contact Section -->
     <section id="contact">
         <h2 class="section__title">Contact Me</h2>
-        <form class="contact__form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
+        <form class="contact__form" id="contactForm">
+            <input type="text" id="name" name="name" placeholder="Your Name" autocomplete="name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" autocomplete="email" required>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
             <button type="submit" class="btn btn--primary">Send Message</button>
         </form>
     </section>
