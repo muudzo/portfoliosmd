@@ -365,7 +365,7 @@ select {
 }
 
 .hero__content {
-    max-width: 1200px;
+    max-width: 1440px;
     text-align: center;
     z-index: 1;
 }
@@ -496,9 +496,13 @@ select {
         left: 0;
         width: 100%;
         padding: 2rem;
-        background: var(--bg);
+        padding: 2rem;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(20px);
         flex-direction: column;
         transition: var(--transition);
+        z-index: 1000;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
     .nav__logo-image {
@@ -537,7 +541,7 @@ select {
     }
 
     .pill-nav:hover {
-        width: min(400px, 85vw);
+        width: min(300px, 85vw);
     }
 }
 
