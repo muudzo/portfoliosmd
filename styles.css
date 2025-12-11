@@ -105,7 +105,7 @@ select {
 }
 
 .nav__logo {
-    font-size: 1.5rem;
+    font-size: var(--fs-md);
     font-weight: bold;
     color: var(--primary);
     text-decoration: none;
@@ -331,7 +331,7 @@ select {
 }
 
 .hero__subtitle {
-    font-size: 1.5rem;
+    font-size: var(--fs-md);
     margin-bottom: 2rem;
     opacity: 0.9;
 }
@@ -612,7 +612,8 @@ section.animate {
 }
 
 .project__description {
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
+    line-height: 1.5;
     opacity: 0.8;
 }
 
