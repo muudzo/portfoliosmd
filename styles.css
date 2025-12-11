@@ -100,7 +100,8 @@ select {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 5%;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -542,9 +543,10 @@ select {
 
 /* Section Styles */
 section {
-    padding: 4rem 5%;
-    max-width: 1200px;
+    padding: var(--spacing-lg) 5%;
+    max-width: 1440px;
     margin: 0 auto;
+    width: 100%;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -594,8 +596,8 @@ section.animate {
 /* Skills Section */
 .skills__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
 }
 
 .skill__card {
@@ -630,8 +632,8 @@ section.animate {
 /* Projects Section */
 .projects__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-md);
 }
 
 .project__card {
