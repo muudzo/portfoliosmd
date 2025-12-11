@@ -6,13 +6,13 @@
     --dark: #0a0a0a;
     --dark-overlay: rgba(10, 10, 10, 0.95);
     --light: #f5f5f5;
-    
+
     /* Theme Defaults */
     --bg: var(--dark);
     --text: var(--light);
     --card-bg: rgba(255, 255, 255, 0.05);
     --card-hover: rgba(255, 255, 255, 0.1);
-    
+
     /* Typography */
     --font-sans: 'Space Grotesk', system-ui, -apple-system, sans-serif;
     --fs-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
@@ -21,17 +21,17 @@
     --fs-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
     --fs-xl: clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem);
     --fs-xxl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
-    
+
     /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 4rem;
     --spacing-xl: 8rem;
-    
+
     /* Animation */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    
+
     /* Z-Index */
     --z-noise: 10;
     --z-header: 100;
@@ -46,7 +46,9 @@
 }
 
 /* Base Reset & Styles */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -68,12 +70,19 @@ body {
 }
 
 /* Utility */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
     display: block;
     max-width: 100%;
 }
 
-button, input, textarea, select {
+button,
+input,
+textarea,
+select {
     font: inherit;
 }
 
@@ -311,9 +320,10 @@ button, input, textarea, select {
 }
 
 .hero__title {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
+    font-size: var(--fs-xxl);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
 }
 
 .highlight {
@@ -496,14 +506,18 @@ section.animate {
 }
 
 .section__title {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+    font-size: var(--fs-xl);
+    margin-bottom: var(--spacing-md);
     color: var(--primary);
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .section__content {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: var(--fs-base);
 }
 
 /* About Section */
@@ -593,8 +607,8 @@ section.animate {
 }
 
 .project__title {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: var(--fs-md);
+    margin-bottom: var(--spacing-xs);
 }
 
 .project__description {
