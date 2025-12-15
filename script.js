@@ -130,16 +130,13 @@ function setupContactForm() {
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn.textContent;
 
-    // Get API URL based on environment
-    const API_URL = getApiUrl();
-
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
         // Validate form
-        const nameInput = this.querySelector('input[type="text"]');
-        const emailInput = this.querySelector('input[type="email"]');
-        const messageInput = this.querySelector('textarea');
+        const nameInput = this.querySelector('input[name="name"]');
+        const emailInput = this.querySelector('input[name="email"]');
+        const messageInput = this.querySelector('textarea[name="message"]');
 
         if (!validateForm(nameInput, emailInput, messageInput)) {
             return;
@@ -149,44 +146,28 @@ function setupContactForm() {
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
-        const formData = {
-            name: nameInput.value,
-            email: emailInput.value,
-            message: messageInput.value
-        };
+        // Url encode form data for Netlify
+        const formData = new FormData(form);
+        const urlEncodedData = new URLSearchParams(formData).toString();
 
         try {
-            console.log('Submitting form to:', `${API_URL}/contact`);
-            console.log('Form data:', formData);
+            console.log('Submitting form to Netlify...');
 
-            let response = await fetch(`${API_URL}/contact`, {
+            let response = await fetch("/", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData)
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: urlEncodedData
             });
 
-            console.log('Response status:', response.status);
-
-            let result = await response.json();
-            console.log('Response data:', result);
-
             if (response.ok) {
-                showNotification(result.success || 'Message sent successfully!', 'success');
+                showNotification('Message sent successfully!', 'success');
                 form.reset();
             } else {
-                showNotification(result.error || 'Failed to send message. Please try again.', 'error');
+                showNotification('Failed to send message. Please try again.', 'error');
             }
         } catch (error) {
             console.error("Error submitting contact form:", error);
-
-            // Provide more specific error messages
-            if (error.name === 'TypeError' && error.message.includes('fetch')) {
-                showNotification("Cannot connect to server. Please ensure the backend is running.", 'error');
-            } else if (error instanceof SyntaxError) {
-                showNotification("Server returned an invalid response. Please try again.", 'error');
-            } else {
-                showNotification("Unable to send message. Please try again later.", 'error');
-            }
+            showNotification("Unable to send message. Please try again later.", 'error');
         } finally {
             // Re-enable button and restore text
             submitBtn.disabled = false;
@@ -290,15 +271,6 @@ function showNotification(message, type) {
     }, 5000);
 }
 
-function getApiUrl() {
-    // Determine if we're in production based on the URL
-    const isProduction = window.location.hostname !== 'localhost' &&
-        !window.location.hostname.includes('127.0.0.1');
-
-    //determines which api url to use based on the environment (production or development)
-    return isProduction
-        ? 'https://smddevelopers.onrender.com'
-        : 'http://localhost:5050';
-}
+// getApiUrl function removed as it is no longer needed for Netlify Forms
 
 // (Reverted) Removed 3D tilt effect to restore original behavior
