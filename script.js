@@ -151,13 +151,20 @@ function setupContactForm() {
         const urlEncodedData = new URLSearchParams(formData).toString();
 
         try {
-            console.log('Submitting form to Netlify...');
-
-            let response = await fetch("/", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: urlEncodedData
-            });
+            let response;
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                // Mock submission for local testing
+                console.log('Local environment detected: Mocking Netlify Form submission.');
+                await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate network delay
+                response = { ok: true, status: 200 };
+            } else {
+                // Production submission
+                response = await fetch("/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: urlEncodedData
+                });
+            }
 
             if (response.ok) {
                 showNotification('Message sent successfully!', 'success');
