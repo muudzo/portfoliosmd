@@ -5,41 +5,12 @@ require('dotenv').config();
 
 const app = express();
 
-// CORS Configuration with multiple origin support
-const allowedOrigins = [
-    'http://localhost:3000',     // Local frontend development
-    'http://localhost:5500',     // Live server extension
-    'http://localhost:8000',     // Python local server
-    'http://127.0.0.1:8000',     // Python local server (loopback)
-];
-
-// Configuring CORS with options
+// CORS Configuration - Allow all origins for debugging
 app.use(cors({
-    origin: function (origin, callback) {
-        // Allow requests with no origin (like mobile apps, curl requests)
-        if (!origin) return callback(null, true);
-
-        // Allow localhost origins
-        if (allowedOrigins.indexOf(origin) !== -1) {
-            return callback(null, true);
-        }
-
-        // Allow any Netlify domain (*.netlify.app)
-        if (origin && origin.match(/https:\/\/.*\.netlify\.app$/)) {
-            return callback(null, true);
-        }
-
-        // Allow production domain
-        if (origin && origin === 'https://smddevelopers.com') {
-            return callback(null, true);
-        }
-
-        const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-        return callback(new Error(msg), false);
-    },
+    origin: '*',
     methods: ['GET', 'POST'],
-    credentials: true,
-    optionsSuccessStatus: 204
+    credentials: true, // Note: credentials might not work with '*' in some browsers/configs, but Render handles this usually.
+    // If credentials are strictly needed, we might need to reflect request origin, but for now * is requested.
 }));
 
 // Parse JSON request bodies
@@ -86,6 +57,7 @@ app.post('/contact', async (req, res) => {
     }
 
     try {
+        console.log("Attempting to connect to Gmail via Nodemailer...");
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -113,6 +85,7 @@ Sent from: SMD Developers Portfolio
             text: emailContent
         };
 
+        console.log("Transporter created. Sending mail now...");
         await transporter.sendMail(mailOptions);
 
         console.log("Email Sent Successfully!");
