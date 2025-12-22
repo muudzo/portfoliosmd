@@ -74,11 +74,11 @@ Email: ${email}
 Message:
 ${message}
 
-Sent from: SMD Developers Portfolio
+Sent from: TATENDA NYEMUDZO Portfolio
         `;
 
         const mailOptions = {
-            from: `"SMD Portfolio" <${process.env.EMAIL_USER}>`,
+            from: `"TATENDA NYEMUDZO Portfolio" <${process.env.EMAIL_USER}>`,
             replyTo: email,
             to: process.env.EMAIL_USER,
             subject: `New Contact Form Submission from ${name}`,

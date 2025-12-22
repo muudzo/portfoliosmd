@@ -1,6 +1,6 @@
 # Portfolio Backend
 
-Backend server for the SMD Developers portfolio website. Handles contact form submissions and sends emails via Gmail SMTP.
+Backend server for the TATENDA NYEMUDZO portfolio website. Handles contact form submissions and sends emails via Gmail SMTP.
 
 ## Features
 
